@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login / Register - RAW</title>
+    <link rel="stylesheet" href="css/style.css">
+  
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="login-page-body">
+    
+    <div class="auth-container">
+        <div id="login-form" class="form-box">
+            <h1 class="satsuki">Login</h1>
+            <form id="login">
+                <input type="email" id="login-email" placeholder="Email" required class="animated-textbox">
+                <input type="password" id="login-password" placeholder="Password" required class="animated-textbox">
+                <button type="submit">Login</button>
+            </form>
+            <p class="satsuki">Don't have an account? <a href="#" id="show-signup">Sign Up</a></p>
+        </div>
+
+        <div id="signup-form" class="form-box" style="display:none;">
+            <h1 class="satsuki">Sign Up</h1>
+            <form id="signup">
+                <input type="email" id="signup-email" placeholder="Email" required class="animated-textbox">
+                <input type="password" id="signup-password" placeholder="Password" required class="animated-textbox">
+                <button type="submit">Sign Up</button>
+            </form>
+            <p class="satsuki">Already have an account? <a href="#" id="show-login">Login</a></p>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

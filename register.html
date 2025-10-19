@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register for RAW-2</title>
+    <link rel="stylesheet" href="css/style.css">
+   
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav>
+        <h1>RAW Event Registration</h1>
+        <a href="/dashboard.html" class="nav-link back-button">Back to Dashboard</a>
+    </nav>
+    <div class="container">
+   <div class="form-box registration-form">
+    <h2>Registration Details</h2>
+
+    <form id="event-registration-form">
+
+        <div class="registration-layout">
+
+            <div class="form-column">
+                <input type="text" id="name" placeholder="Full Name" required class="animated-textbox">
+                <input type="number" id="age" placeholder="Age" required class="animated-textbox">
+                <input type="number" id="weight" placeholder="Weight (kg)" required class="animated-textbox">
+                <input type="number" id="height" placeholder="Height (cm)" required class="animated-textbox">
+                <input type="email" id="email" placeholder="Email" required class="animated-textbox" readonly>
+                <textarea id="health-issues" placeholder="Any existing health issues? (e.g., asthma, injuries)" required class="animated-textbox"></textarea>
+                <textarea id="experience" placeholder="Briefly describe your fitness experience" required class="animated-textbox"></textarea>
+                <textarea id="Physcially challenged" placeholder="Physcially challenged" required class="animated-textbox"></textarea>
+                
+            </div>
+
+            <div class="payment-column">
+                <h3>Scan & Pay 350 to Register</h3>
+                <img src="https://res.cloudinary.com/dj5r5py20/image/upload/v1760100310/WhatsApp_Image_2025-10-10_at_17.59.08_a1dc37f5_sngapi.jpg" alt="UPI QR Code for Payment" class="qr-code-img">
+                <p class="upi-id">
+                    <strong>Or Pay Using UPI ID:</strong><br>
+                    7075229073@ptyes
+                </p>
+                <p class="upload-instruction">After payment, upload the screenshot below.</p>
+                <div class="file-upload-wrapper">
+                    <label for="payment-upload" class="file-upload-label">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm1 14.77V18a1 1 0 0 1-2 0v-1.23a4 4 0 0 1-1.8-1.12l-.8.8a1 1 0 0 1-1.42-1.42l.8-.8A4 4 0 0 1 7 12a4 4 0 0 1 1.38-3.12l-.8-.8a1 1 0 1 1 1.42-1.42l.8.8A4 4 0 0 1 11 6.23V5a1 1 0 0 1 2 0v1.23a4 4 0 0 1 1.8 1.12l.8-.8a1 1 0 0 1 1.42 1.42l-.8.8A4 4 0 0 1 17 12a4 4 0 0 1-1.38 3.12l.8.8a1 1 0 0 1-1.42 1.42l-.8-.8A4 4 0 0 1 13 16.77zM11 14a2 2 0 1 1 2-2 2 2 0 0 1-2 2z"></path></svg>
+                        <span>Upload Payment Screenshot</span>
+                    </label>
+                    <input type="file" id="payment-upload" accept="image/*" required>
+                    <span class="file-name">No file chosen</span>
+                </div>
+                <div class="file-upload-wrapper">
+                    <label for="aadhar-upload" class="file-upload-label">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M12 2a9 9 0 0 0-9 9c0 4.968 4.032 9 9 9s9-4.032 9-9a9 9 0 0 0-9-9zm0 16a7 7 0 0 1-7-7c0-3.86 3.14-7 7-7s7 3.14 7 7a7 7 0 0 1-7 7z"></path><path d="M12 6a1 1 0 0 0-1 1v4a1 1 0 1 0 2 0V7a1 1 0 0 0-1-1z"></path><path d="M12 12a1.5 1.5 0 1 0 1.5 1.5A1.5 1.5 0 0 0 12 12z"></path></svg>
+                        <span>Upload Aadhar Card</span>
+                    </label>
+                    <input type="file" id="aadhar-upload" accept="image/*" required>
+                    <span class="file-name">No file chosen</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="full-width-actions">
+            <div class="checkbox-container">
+                <input type="checkbox" id="info-true" required>
+                <label for="info-true">All the information given is true and I am liable for the actions if not true.</label>
+            </div>
+            <div class="checkbox-container">
+                <input type="checkbox" id="injury-waiver" required>
+                <label for="injury-waiver">I understand that if any injury occurs during participation, the RAW team is not responsible.</label>
+            </div>
+            <button type="submit">Complete Registration</button>
+        </div>
+        
+    </form> </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

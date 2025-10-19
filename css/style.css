@@ -1,0 +1,1227 @@
+/* --- Root Variables & Base Styles --- */
+:root {
+    --primary-red: #e74c3c;
+    --hover-red: #c0392b;
+    --dark-bg: #121212;
+    --light-text: #ecf0f1;
+    --border-color: #444;
+    --box-bg: #1e1e1e;
+    --box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+    --glow-shadow: 0 0 20px rgba(231, 76, 60, 0.4);
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--dark-bg);
+    color: var(--light-text);
+    margin: 0;
+    line-height: 1.6;
+    overflow-x: hidden; /* Prevent horizontal scroll from animations */
+}
+
+/* General container for content boxes */
+.container {
+    width: 100%;
+    max-width: 800px; /* Standard width for forms/dashboard */
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- Main Navigation Bar --- */
+/* --- Shared Navbar --- */
+.main-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 40px; /* Use fixed padding instead of percentage */
+    background-color: rgba(18, 18, 18, 0.8);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%; /* Make navbar full width */
+    z-index: 1000;
+    box-sizing: border-box; /* Important: makes padding stay inside the width */
+}
+
+.nav-logo {
+    font-size: 1.8em;
+    font-weight: 700;
+    color: var(--primary-red);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+.nav-logo:hover {
+    color: var(--light-text);
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    gap: 25px;
+}
+
+.main-nav ul a {
+    color: var(--light-text);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 8px 0;
+    transition: color 0.3s ease, transform 0.2s ease;
+    position: relative;
+}
+
+.main-nav ul a:hover {
+    color: var(--primary-red);
+    transform: translateY(-2px);
+}
+
+.nav-button {
+    background-color: var(--primary-red);
+    padding: 10px 20px;
+    border-radius: 10px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    font-weight: 500px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    width:150px;
+    text-align: center;
+    color: var(--light-text) !important;
+    text-decoration: none;
+    height:20px;
+    line-height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.nav-button:hover {
+    background-color: var(--hover-red);
+    color: var(--light-text) !important;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.4);
+}
+
+/* --- Hero Section (Home Page) --- */
+.hero {
+    height: 100vh;
+    display: flex;  
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    background-size: cover;
+    background-position: center;
+    /* 30% dark overlay at the top, fading to 0% */
+background-image:  url('../assets/images/hero-background.jpg');
+    animation: fadeInUp 1s ease-out forwards;
+    padding-top: 80px; /* Account for fixed nav */
+}
+
+.hero-content h1 {
+    font-size: 3.5em;
+    margin-bottom: 20px;
+    text-shadow: 0 4px 8px rgba(0,0,0,0.5);
+}
+
+.hero-content p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: var(--primary-red);
+    color: #fff;
+    padding: 15px 30px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    margin-top: 10px;
+    font-size: 1.1em;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 15px;
+    height: 20px;
+    line-height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    
+    
+
+   
+}
+
+.cta-button:hover {
+    background-color: var(--hover-red);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.4);
+}
+
+/* --- General Content Sections --- */
+.content-section {
+    padding: 80px 5%;
+    text-align: center;
+    animation: fadeInUp 0.8s ease-out forwards;
+    animation-delay: 0.2s;
+    opacity: 0; /* Start hidden for animation */
+}
+
+.content-section h2 {
+    font-size: 2.5em;
+    margin-bottom: 40px;
+    color: var(--primary-red);
+    text-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+.section-content {
+    max-width: 900px; /* Slightly wider content sections */
+    margin: 0 auto;
+    text-align: left;
+    background-color: var(--box-bg);
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--box-shadow);
+}
+.section-content p {
+    margin-bottom: 15px;
+    font-size: 1.05em;
+    line-height: 1.8;
+}
+
+.page-header {
+    padding-top: 150px; /* To push content below fixed navbar */
+}
+
+/* --- Gallery (Events Page) --- */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    max-width: 1200px; /* Wider gallery */
+    margin: 0 auto;
+    padding: 0 5%;
+}
+
+.gallery-grid img {
+    width: 100%;
+    height: 200px; /* Fixed height for consistency */
+    object-fit: cover; /* Ensures images fill the space */
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+}
+
+.gallery-grid img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+    border-color: var(--primary-red);
+}
+
+/* --- Rules Page --- */
+.rules-list h3 {
+    margin-top: 30px;
+    color: var(--primary-red);
+    font-size: 1.8em;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+.rules-list ul {
+    list-style-type: none; /* Remove default bullet */
+    padding-left: 0;
+}
+.rules-list ul li {
+    background-color: #252525;
+    margin-bottom: 10px;
+    padding: 12px 20px;
+    border-radius: 8px;
+    border: 1px solid #333;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    transition: background-color 0.3s ease;
+}
+.rules-list ul li:hover {
+    background-color: #303030;
+}
+.rules-list ul li::before {
+    content: '→'; /* Custom bullet point */
+    color: var(--primary-red);
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+
+/* --- Team Page Styles --- */
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 40px auto 0 auto;
+    padding: 0 5%;
+}
+
+.team-member-card {
+    background-color: var(--box-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    text-align: center;
+    padding: 25px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+    animation: fadeInUp 0.6s ease-out forwards;
+    opacity: 0; /* Start hidden for animation */
+}
+/* Individual animation delays */
+.team-member-card:nth-child(1) { animation-delay: 0.1s; }
+.team-member-card:nth-child(2) { animation-delay: 0.2s; }
+.team-member-card:nth-child(3) { animation-delay: 0.3s; }
+.team-member-card:nth-child(4) { animation-delay: 0.4s; }
+.team-member-card:nth-child(5) { animation-delay: 0.5s; }
+.team-member-card:nth-child(6) { animation-delay: 0.6s; }
+
+
+.team-member-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.6);
+    border-color: var(--primary-red);
+}
+
+.team-member-card img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%; /* Makes the image circular */
+    object-fit: cover; /* Ensures the image covers the area without distortion */
+    border: 4px solid var(--primary-red); /* Thicker border */
+    margin-bottom: 20px;
+    box-shadow: 0 0 15px rgba(231, 76, 60, 0.3); /* Subtle glow */
+}
+
+.team-member-card h3 {
+    margin: 10px 0 8px 0;
+    font-size: 1.6em;
+    color: var(--light-text);
+    font-weight: 600;
+}
+
+.team-member-card p {
+    font-size: 1em;
+    color: var(--primary-red);
+    margin: 0;
+    font-weight: 500;
+}
+.team-member-card .description {
+    font-size: 0.9em;
+    color: #bbb;
+    margin-top: 15px;
+    line-height: 1.6;
+    min-height: 60px; /* Ensure consistent height for cards */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* --- Login/Register Page Styles --- */
+.login-page-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image: linear-gradient(to bottom, rgba(18, 18, 18, 0.073), rgba(18, 18, 18, 1)), url('https://res.cloudinary.com/dt9ujdhu7/image/upload/v1760343902/POSTER_2_WITHOUT_VENUE_hxftg2.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    padding: 30px; /* Add some padding for smaller screens */
+}
+
+.login-header {
+    position: absolute;
+    top: 20px;
+    left: 5%;
+}
+
+.auth-container {
+    max-width: 450px; /* Standard width for auth forms */
+    width: 100%;
+    margin-top: 50px; /* Adjust if needed to move forms down from top */
+}
+
+.form-box {
+    background-color: var(--box-bg);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: var(--box-shadow);
+    border: 1px solid var(--border-color);
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+h1, h2 {
+    color: var(white);
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: 600;
+    text-shadow: 0 2px 5px rgb(0, 0, 0);
+}
+
+/* Input Field Styling */
+.animated-textbox, textarea {
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 18px;
+    background-color: #fefefe;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    color: var(dark --hover-red);
+    box-sizing: border-box;
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.3s ease-in-out;
+}
+
+.animated-textbox:focus, textarea:focus {
+    outline: none;
+    box-shadow: var(--glow-shadow);
+    border-color: var(--primary-red);
+    transform: translateY(-2px);
+}
+
+/* Button Styling */
+form button, .cta-button { /* Apply these styles to all form buttons and cta-button */
+    width: 100%;
+    padding: 14px;
+    background-image: linear-gradient(to right, var(--primary-red), var(--hover-red));
+    border: none;
+    border-radius: 8px;
+    color: var(--light-text);
+    font-size: 16px;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+form button:hover, .cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Links */
+a {
+    color: var(--primary-red);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--hover-red);
+    text-decoration: underline;
+}
+
+/* --- Dashboard Specific Styles --- */
+/* This nav overrides .main-nav for dashboard/register pages */
+body.dashboard-page-body nav, body.registration-page-body nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    box-sizing: border-box;
+    background-color: rgba(30, 30, 30, 0.8);
+    backdrop-filter: blur(5px);
+    border-bottom: 1px solid var(--border-color);
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+body.dashboard-page-body nav h1, body.registration-page-body nav h1 {
+    font-size: 24px;
+    margin: 0;
+    color: var(--light-text);
+    text-align: left;
+    text-shadow: none;
+}
+
+body.dashboard-page-body nav button, body.registration-page-body nav .nav-link {
+    width: auto;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    background: var(--primary-red);
+    border: none;
+    border-radius: 8px;
+    color: var(--light-text);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+body.dashboard-page-body nav button:hover, body.registration-page-body nav .nav-link:hover {
+    background: var(--hover-red);
+    transform: translateY(-2px);
+    color: var(--light-text);
+    text-decoration: none;
+}
+
+.content-box {
+    text-align: center;
+    max-width: 600px;
+    margin: 150px auto 0 auto; /* Push content down below fixed nav */
+    padding: 40px;
+    background-color: var(--box-bg);
+    border-radius: 12px;
+    box-shadow: var(--box-shadow);
+    border: 1px solid var(--border-color);
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.content-box p {
+    font-size: 1.1em;
+    margin-bottom: 30px;
+}
+
+/* --- Registration Form Specific Styles --- */
+.registration-form {
+    max-width: 900px; /* Wider form for two columns */
+    margin: 150px auto 50px auto; /* Push down from nav */
+}
+
+.registration-layout {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+}
+
+.form-column {
+    flex: 1;
+}
+
+.payment-column {
+    flex: 1;
+    background-color: #2c2c2c;
+    border-radius: 8px;
+    padding: 25px;
+    border: 1px solid var(--border-color);
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.3);
+}
+
+.payment-column h3 {
+    text-align: center;
+    color: var(--light-text);
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    text-shadow: none;
+}
+
+.qr-code-img {
+    display: block;
+    width: 60%;
+    max-width: 200px;
+    margin: 0 auto 20px auto;
+    border-radius: 8px;
+    background-color: white;
+    padding: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.upi-id {
+    text-align: center;
+    font-size: 1.1em;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.upi-id strong {
+    color: var(--primary-red);
+}
+
+.upload-instruction {
+    text-align: center;
+    font-size: 0.9em;
+    color: #999;
+    margin-bottom: 20px;
+}
+
+.file-upload-wrapper {
+    border: 1px dashed var(--border-color);
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    margin-bottom: 15px;
+    cursor: pointer;
+}
+
+.file-upload-wrapper:hover {
+    background-color: #2c2c2c;
+    border-color: var(--primary-red);
+}
+
+.file-upload-wrapper input[type="file"] {
+    display: none;
+}
+
+.file-upload-label {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    color: var(--light-text);
+}
+
+.file-upload-label svg {
+    color: var(--primary-red);
+    width: 32px;
+    height: 32px;
+}
+
+.file-upload-label span {
+    font-weight: 500;
+}
+
+.file-name {
+    font-size: 0.8em;
+    color: #999;
+    margin-top: 10px;
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.full-width-actions {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Space between checkboxes and button */
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: flex-start; /* Align text with checkbox top */
+    margin-bottom: 0; /* Remove margin as gap handles spacing */
+    font-size: 0.95em;
+}
+
+.checkbox-container input[type="checkbox"] {
+    margin-right: 12px;
+    min-width: 18px; /* Ensure checkbox is visible */
+    min-height: 18px;
+    accent-color: var(--primary-red); /* Style the checkbox */
+    cursor: pointer;
+}
+
+/* --- Shared Footer --- */
+.site-footer {
+    text-align: center;
+    padding: 40px 5%;
+    background-color: var(--box-bg);
+    border-top: 1px solid var(--border-color);
+    margin-top: 50px;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.5);
+}
+
+
+/* ========================================= */
+/* --- RESPONSIVE STYLES --- */
+/* ========================================= */
+
+@media (max-width: 992px) { /* Adjust for wider tablets */
+    .hero-content h1 {
+        font-size: 3em;
+    }
+    .content-section h2 {
+        font-size: 2em;
+    }
+    .team-grid, .gallery-grid {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Smaller cards/images */
+    }
+    .registration-form {
+        max-width: 700px;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Main Nav */
+    .main-nav {
+        flex-direction: column;
+        padding: 10px;
+        position: static; /* Make nav static on small screens */
+        width: 100%;
+        backdrop-filter: none;
+        background-color: var(--dark-bg);
+    }
+    .main-nav ul {
+        margin-top: 10px;
+        flex-direction: column;
+        gap: 15px;
+        width: 100%;
+        text-align: center;
+    }
+    .nav-logo {
+        margin-bottom: 10px;
+    }
+
+    /* Hero */
+    .hero {
+        padding-top: 0; /* No need to push down if nav is static */
+        height: 60vh; /* Shorter hero section */
+    }
+    .hero-content h1 {
+        font-size: 2.5em;
+    }
+    .hero-content p {
+        font-size: 1em;
+    }
+
+    /* General Content */
+    .content-section {
+        padding: 40px 5%;
+    }
+    .page-header {
+        padding-top: 40px; /* Adjust for static nav */
+    }
+
+    /* Login/Register Page */
+    .login-page-body {
+        align-items: flex-start; /* Align content to top */
+        padding-top: 20px; /* Top padding */
+    }
+    .auth-container {
+        margin-top: 20px; /* Less top margin for forms */
+    }
+    .form-box {
+        padding: 25px;
+    }
+    h1, h2 {
+        font-size: 1.8em;
+        margin-bottom: 20px;
+    }
+
+    /* Dashboard & Registration Nav */
+    body.dashboard-page-body nav, body.registration-page-body nav {
+        flex-direction: column;
+        padding: 15px;
+        position: static;
+        width: 100%;
+        backdrop-filter: none;
+        background-color: var(--dark-bg);
+    }
+    body.dashboard-page-body nav h1, body.registration-page-body nav h1 {
+        font-size: 1.5em;
+        margin-bottom: 10px;
+    }
+
+    .content-box, .registration-form {
+        margin-top: 20px auto; /* Adjust top margin */
+        padding: 25px;
+    }
+
+    /* Registration Form Layout */
+    .registration-layout {
+        flex-direction: column; /* Stack columns on smaller screens */
+        gap: 25px;
+    }
+    .qr-code-img {
+        width: 80%; /* Larger QR code for easy scanning */
+    }
+    .full-width-actions {
+        margin-top: 20px;
+        padding-top: 15px;
+        gap: 15px;
+    }
+    .checkbox-container {
+        font-size: 0.85em;
+    }
+}
+:root {
+    --primary-red: #e74c3c; /* Main accent color */
+    --hover-red: #c0392b;   /* Color for hover effects */
+    --dark-bg: #121212;     /* Main background color */
+    --light-text: #ecf0f1;  /* Main text color */
+    --border-color: #444;   /* Border color */
+    --box-bg: #1e1e1e;       /* Background for cards/boxes */
+}
+/* --- Guest Section (Events Page) - NEW & IMPROVED --- */
+.guest-grid {
+    display: grid;
+    /* Creates a perfect 3-column grid */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 30px;
+    max-width: 1200px;
+    margin: 40px auto 0 auto;
+}
+
+.guest-card {
+    background-color: var(--box-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    overflow: hidden; /* Keeps the image corners rounded */
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.guest-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.6);
+    border-color: var(--primary-red);
+}
+
+.guest-card img {
+    width: 100%;
+    height: 280px; /* Taller, consistent image height */
+    object-fit: cover;
+    display: block;
+}
+
+.guest-info {
+    padding: 20px;
+    text-align: left; /* Cleaner left-aligned text */
+    border-top: 1px solid var(--border-color);
+}
+
+.guest-info h3 {
+    margin: 0 0 5px 0;
+    font-size: 1.4em;
+    color: var(--light-text);
+    font-weight: 600;
+}
+
+.guest-info p {
+    font-size: 1em;
+    color: var(--primary-red);
+    margin: 0;
+    font-weight: 500;
+}
+
+/* --- Responsive styles for the new guest grid --- */
+/* For Tablets */
+@media (max-width: 992px) {
+    .guest-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns */
+    }
+}
+
+/* For Phones */
+@media (max-width: 576px) {
+    .guest-grid {
+        grid-template-columns: repeat(1, 1fr); /* 1 column */
+    }
+}
+.hero {
+    /* ... other styles ... */
+    background-image: linear-gradient(rgba(18,18,18,0.7), rgba(18,18,18,0.7)), url('../assets/images/hero-background.jpg');
+}
+
+.sponsors-section {
+    padding: 40px 5%;
+    background-color: var(--box-bg); /* Use the dark box background */
+    text-align: center;
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.sponsors-section h2 {
+    font-size: 1.8em;
+    color: #aaa; /* A more subtle color for the heading */
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 30px;
+}
+
+.sponsor-logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0px; /* Space between logos */
+    flex-wrap: wrap; /* Allows logos to wrap onto the next line on smaller screens */
+}
+.sponsors-logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0px; /* Space between logos */
+    flex-wrap: wrap; /* Allows logos to wrap onto the next line on smaller screens */
+}
+
+.sponsor-logos img {
+    max-height: 60px; /* Controls the height of the sponsor logos */
+    width: auto;
+    display: flex;
+    justify-content: center;
+    /* Professional grayscale effect that colors on hover */
+   
+    transition: all 0.3s ease;
+}
+.sponsors-logos img {
+    max-height: 300px; /* Controls the height of the sponsor logos */
+    
+    display: flex;
+    justify-content: center;
+    /* Professional grayscale effect that colors on hover */
+   
+    transition: all 0.3s ease;
+}
+.sponsor-logos img:hover {
+    filter: grayscale(0%) opacity(1);
+    transform: scale(1.1);
+}
+.sponsors-logos img:hover {
+    filter: grayscale(0%) opacity(1);
+    transform: scale(1.1);
+}
+/* Flex container for the bottom row of sponsors */
+.sponsor-logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px; /* A smaller gap since the boxes have padding */
+    flex-wrap: wrap;
+}
+
+/* 1. Make the link (<a>) a fixed-size container */
+.sponsor-logos a {
+    display: flex;         /* Enables flexbox for centering */
+    justify-content: center; /* Horizontally centers the image */
+    align-items: center;   /* Vertically centers the image */
+    
+    width: 200px;          /* SET A FIXED WIDTH for the container */
+    height: 80px;          /* SET A FIXED HEIGHT for the container */
+    
+    background-color: transparent; /* Or another color if you want */
+    padding: 10px;         /* Adds some space inside the box */
+    box-sizing: border-box;
+}
+
+/* 2. Make the image (<img>) fit inside the container */
+.sponsor-logos img {
+    max-width: 100%;       /* Image will never be wider than its container */
+    max-height: 100%;      /* Image will never be taller than its container */
+    width: auto;           /* Maintain aspect ratio */
+    height: auto;          /* Maintain aspect ratio */
+    transition: all 0.3s ease;
+}
+
+/* Hover effect */
+.sponsor-logos a:hover img {
+    transform: scale(1.1);
+}
+/* --- Logout Button (Red, Primary Action) --- */
+/* --- Logout Button (Corrected with ID) --- */
+#logout-button {
+    width: auto;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    background: var(--primary-red);
+    border: none;
+    border-radius: 8px;
+    color: var(--light-text);
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+#logout-button:hover {
+    background: var(--hover-red);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+}
+
+
+/* --- Back to Dashboard Button (White, Secondary Action) --- */
+.back-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    background: none;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    color: var(--light-text);
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.back-button:hover {
+    background: var(--primary-red);
+    border-color: var(--primary-red);
+    color: var(--light-text);
+}
+/* --- Rules Page Background Image --- */
+.rules-page-background {
+    /* Make sure the path points to your chosen image */
+    background-image: linear-gradient(rgba(18, 18, 18, 0.95), rgba(18, 18, 18, 0.95)), url('../assets/images/rules-background.jpg');
+    
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* This makes the image stay in place while scrolling */
+    border-radius: 12px; /* Optional: adds rounded corners to the background section */
+}
+/* --- About Section Image Centering Fix --- */
+.about-image {
+    flex: 1; /* This keeps the column size the same */
+    display: flex; /* Make this div a flex container */
+    justify-content: center; /* Center the image horizontally */
+    align-items: center; /* Center the image vertically */
+}
+.login-page-body {
+    display: flex;
+    justify-content: center;  /* Centers horizontally */
+    align-items: center;      /* Centers vertically */
+    min-height: 100vh;        /* Fills the screen height */
+}
+/* --- Contact Section & Social Icons --- */
+#contact-section .section-content {
+    background: none;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap; /* Allows icons to stack on smaller screens */
+}
+
+.social-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: var(--light-text);
+    transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+    color: var(--primary-red);
+    transform: translateY(-5px);
+}
+
+.social-icon .icon {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+.social-icon span {
+    font-size: 1.1em;
+    font-weight: 500;
+}
+/* --- Team Member Links & Hover Icon --- */
+
+/* This makes the entire card a link without a blue underline */
+.team-member-link {
+    text-decoration: none;
+    color: inherit; /* This makes the text color normal */
+    display: block; /* Important for layout */
+}
+
+/* We need to add this so the icon can be positioned correctly */
+.team-member-card {
+    position: relative;
+}
+
+/* This is the container for the little Instagram icon */
+.social-icon-wrapper {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    padding: 8px;
+    
+    /* The icon is invisible by default */
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all 0.3s ease;
+}
+
+/* When you hover over the card, the icon appears */
+.team-member-card:hover .social-icon-wrapper {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.social-icon-wrapper svg {
+    width: 24px;
+    height: 24px;
+    color: #fff; /* White icon color */
+    display: block;
+}
+/* --- Contact Section & Social Icons --- */
+#contact-section .section-content {
+    background: none;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.social-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: var(--light-text);
+    transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+    color: var(--primary-red);
+    transform: translateY(-5px);
+}
+
+.social-icon .icon {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+.social-icon span {
+    font-size: 1.1em;
+    font-weight: 500;
+}
+/* --- Guest Card Instagram Link --- */
+.guest-achievement {
+    font-size: 0.9em;
+    color: #aaa;
+    margin: 5px 0 15px 0; /* Adds some space around it */
+}
+
+.instagram-link {
+    display: inline-flex; /* Aligns icon and text */
+    align-items: center;
+    gap: 8px; /* Space between icon and username */
+    text-decoration: none;
+    color: #ccc; /* A lighter, less prominent color */
+    font-weight: 500;
+    font-size: 0.9em;
+    transition: color 0.3s ease;
+}
+
+.instagram-link:hover {
+    color: var(--primary-red); /* Highlights in red on hover */
+    text-decoration: underline;
+}
+
+.instagram-link svg {
+    width: 18px;
+    height: 18px;
+}
+/* --- New Styles for Events Page Layout --- */
+.cta-section {
+    padding: 20px 5%;
+    text-align: center;
+}
+
+.subsection-title {
+    font-size: 1.8em;
+    color: var(--light-text);
+    margin-top: 60px; /* Adds space between sections */
+    margin-bottom: 30px;
+    border-bottom: 2px solid var(--border-color);
+    display: inline-block;
+    padding-bottom: 10px;
+}
+/* --- Part 1: Define the "Shogun" Font --- */
+/* This rule loads your font files so the browser can use them. */
+@font-face {
+  font-family: 'Shogun'; /* The name we will use to refer to the font */
+  src: url('/fonts/Shogun.woff2') format('woff2'),
+       url('/fonts/Shogun.woff') format('woff'),
+       url('/fonts/Shogun.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* --- Part 2: Set a Default Font for the Website --- */
+/* All regular text (paragraphs, lists, etc.) will use this clean font. */
+/* --- Part 1: Define the "Shogun" Font --- */
+/* This rule loads the font files from your server. */
+@font-face {
+  font-family: 'Shogun';
+  /* IMPORTANT: Make sure this path correctly points to your font files */
+  src: url('/fonts/Shogun.woff2') format('woff2'),
+       url('/fonts/Shogun.woff') format('woff'),
+       url('/fonts/Shogun.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+/* --- Part 1: Define the "Hoshiko Satsuki" Font --- */
+/* This rule loads the font file from your server. */
+
+@font-face {
+  font-family: 'Hoshiko Satsuki';
+  src: url('assets/fonts/Hoshiko Satsuki.ttf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: #ffffff;
+  line-height: 1.6;
+}
+
+.satsuki {
+  font-family: 'Hoshiko Satsuki', cursive; /* Use cursive as a fallback */
+}
+
+/* --- Part 1: Define the "SUJOKA Personal Use" Font --- */
+.nav-logo img {
+    width: 150px; /* Or your desired size */
+    height: auto; /* Ensures the height scales correctly */
+    display: block; /* Helps remove any extra space below the image */
+}
+.mains-nav {
+    display: flex;
+    justify-content: flex-start; /* Aligns items to the left */
+    align-items: center;         /* Vertically centers items (optional but good) */
+}
